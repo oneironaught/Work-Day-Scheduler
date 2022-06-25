@@ -12,7 +12,12 @@
 
 ## Usage
 
-- 
+- Bootstrap
+- jQuery 
+- HTML
+- CSS
+- JavaScript
+- Luxon 
 
 ## Authors
 Made by Robert Ruelas © 2022
