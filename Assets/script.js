@@ -1,4 +1,20 @@
-const { DateTime } = require("luxon");
+var timeStamp() {
+    let today = moment();
+    moment("#currentDay").textarea(timeStamp.format('MMMM Do YYYY, h:mm:ss a'));
+
+    let now = moment().format("kk");
+    for (let i = 0; i < scheduleArray.length; i++) {
+        scheduleArray[i].removeClass("future past present");
+
+        if (now > scheduleArray[i].data("hour")) {
+            scheduleArray[i].addClass("past");
+        } else if (now === scheduleArray[i].contatinerEl("data-hour")) {
+            scheduleArray[i].addClass("present");
+        } else {
+            scheduleArray[i].addClass("future");
+        }    
+    }
+}    
 
 // Time elements for.textarea
 let contatinerEl = $(".contatiner");
