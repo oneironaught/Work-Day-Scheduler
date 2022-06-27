@@ -17,7 +17,7 @@
 - HTML
 - CSS
 - JavaScript
-- Luxon 
+- Moment.JS 
 
 ## Authors
 Made by Robert Ruelas © 2022
