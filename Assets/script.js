@@ -1,13 +1,16 @@
+// Establishing time from moment.js
 var today = moment();
 
-$("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm:ss"));
-// $("#currentHour").text(moment().format("h:mm:ss a"));
-function timeChange() {
+// Header timestamp with running time
+$("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm:ss a"));
+
+function scheduledTime() {
     var date = new Date();
     var hours = date.getHours();
     var minutes = date.getMinutes();
     var seconds = date.getSeconds();
 }
+
 // Moment.js function attemtping to add click event
 $(document).ready(function(){ 
     $(".saveBtn").on("click", function(){
@@ -16,14 +19,14 @@ $(document).ready(function(){
         localStorage.setItem(time, textArea);
     });
 
-function timeChange(){
-var currentHour = moment().hour();
-        
+// A function to add color to the columns/rows when scheduledTask is updated or changed    
+function scheduledTask(){
+var currentHour = moment().hour();  
     $('.time-block').each(function(){
-        var idTime = parseInt($(this).attr("id"));
-        if (idTime < currentHour){
+        var idColumns = parseInt($(this).attr("id"));
+        if (idColumns < currentHour){
             $(this).addClass("past");
-        } else if (idTime === currentHour){
+        } else if (idColumns === currentHour){
             $(this).addClass("present");
             $(this).removeClass("past");
         } else {$(this).addClass("future");
@@ -32,28 +35,17 @@ var currentHour = moment().hour();
             }
         })
     }
-timeChange();
-var timeInterval = setInterval(timeChange, 1000);
+scheduledTask();
+var timeInterval = setInterval(scheduledTask, 1000);
 }); 
 
-// var today = function() {
-//     today = JSON.parse(localStorage.getItem("today"));
-//     if (!tasks) {
-//         tasks = {
-//           toDo: [],
-//           inProgress: [],
-//           inReview: [],
-//           done: []
-//         };
-//       }
-// }
-// Time elements for .textarea attempting to add local storage //
-    $("#9am").val(localStorage.getItem("9am"));
-    $("#10am").val(localStorage.getItem("10am"));
-    $("#11am").val(localStorage.getItem("11am"));
-    $("#12pm").val(localStorage.getItem("12pm"));
-    $("#1pm").val(localStorage.getItem("1pm"));
-    $("#2pm").val(localStorage.getItem("2pm"));
-    $("#3pm").val(localStorage.getItem("3pm"));
-    $("#4pm").val(localStorage.getItem("4pm"));
-    $("#5pm").val(localStorage.getItem("5pm"));
+// Time elements for .textarea saving to the local storage when page is refreshed //
+    $("#9am .scheduler").val(localStorage.getItem("9am"));
+    $("#10am .scheduler").val(localStorage.getItem("10am"));
+    $("#11am .scheduler").val(localStorage.getItem("11am"));
+    $("#12pm .scheduler").val(localStorage.getItem("12pm"));
+    $("#1pm .scheduler").val(localStorage.getItem("1pm"));
+    $("#2pm .scheduler").val(localStorage.getItem("2pm"));
+    $("#3pm .scheduler").val(localStorage.getItem("3pm"));
+    $("#4pm .scheduler").val(localStorage.getItem("4pm"));
+    $("#5pm .scheduler").val(localStorage.getItem("5pm"));
