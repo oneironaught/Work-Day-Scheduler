@@ -1,11 +1,17 @@
 var today = moment();
 
+$("#currentDay").text(today.format("dddd, MMMM Do YYYY, h:mm:ss"));
+// $("#currentHour").text(moment().format("h:mm:ss a"));
+function timeChange() {
+    var date = new Date();
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var seconds = date.getSeconds();
+}
 // Moment.js function attemtping to add click event
-$(document).ready(function(){
-    $("#currentDay").text(moment().format("dddd, MMMM YYYY"));
-    // $("#currentHour").text(moment().format("h:mm:ss a")); 
+$(document).ready(function(){ 
     $(".saveBtn").on("click", function(){
-        var textArea = $(this).siblings(".textArea").val();
+        var textArea = $(this).siblings(".scheduler").val();
         var time = $(this).parent().attr("id");
         localStorage.setItem(time, textArea);
     });
